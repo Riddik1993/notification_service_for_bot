@@ -5,8 +5,10 @@ from lexicon.lexicon import LexiconRu
 
 
 def render_one_lesson_text(lesson: Lesson) -> str:
-    lesson_str = lesson.lesson_dttm.astimezone(ZoneInfo('Europe/Moscow')).strftime("%d.%m.%Y %H:%M")
-    return f"{lesson_str} - {lesson.subject.name}"
+    lesson_date_str = lesson.lesson_dttm.astimezone(ZoneInfo('Europe/Moscow')).strftime("%d.%m.%Y")
+    lesson_time_str = lesson.lesson_dttm.astimezone(ZoneInfo('Europe/Moscow')).strftime("%H:%M")
+    pointer_emoji = "✅"
+    return f"{pointer_emoji} {lesson_date_str} <b>{lesson_time_str}</b> - {lesson.subject.name}"
 
 
 def render_lessons_for_student(lessons: list[Lesson]) -> str:

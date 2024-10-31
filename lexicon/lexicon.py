@@ -1,6 +1,8 @@
 import enum
+import emoji
 
 
 class LexiconRu(enum.Enum):
-    lesson_notification_start = """Напоминание.\nУ вас запланированы следующие уроки:\n\n"""
-    apply_to_teacher = "\nЕсли Вам нужно перенести занятие, пожалуйста, сообщите преподавателю:\n"
+    emoji = "‼️"
+    lesson_notification_start = f"""{emoji}Напоминание.\nУ вас запланированы следующие уроки:\n\n"""
+    apply_to_teacher = "\nЕсли Вам нужно перенести или отменить занятие, пожалуйста, сообщите преподавателю:\n"
