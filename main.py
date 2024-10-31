@@ -9,6 +9,7 @@ from database.services.database_services import DbService
 from database.services.sending_services import send_lessons_notification
 
 
+
 async def main():
     config: Configuration = load_config()
     arguments = get_arguments()

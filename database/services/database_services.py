@@ -6,6 +6,7 @@ from sqlalchemy.ext.asyncio import create_async_engine, async_sessionmaker
 
 from database.models.lesson import Lesson
 from database.models.subject import Subject
+from loguru import logger
 
 
 class DbService:
@@ -31,5 +32,8 @@ class DbService:
 
         async with self.session_maker() as session:
             result = await session.execute(stmt)
+
             await session.close()
-            return result.scalars().all()
+            future_lessons = result.scalars().all()
+            logger.info(f"Get {len(future_lessons)} lessons from db to notify")
+            return future_lessons
