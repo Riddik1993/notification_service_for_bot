@@ -9,9 +9,9 @@ from database.models.subject import Subject
 
 
 class DbService:
-    def __init__(self, dbDsn: str):
-        self.dbDsn = dbDsn
-        engine = create_async_engine(url=self.dbDsn)
+    def __init__(self, db_dsn: str):
+        self.db_dsn = db_dsn
+        engine = create_async_engine(url=self.db_dsn)
         self.session_maker = async_sessionmaker(engine, expire_on_commit=False)
 
     async def get_all_future_lessons(
