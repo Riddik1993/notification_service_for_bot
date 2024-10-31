@@ -1,5 +1,4 @@
 import enum
-import emoji
 
 
 class LexiconRu(enum.Enum):
