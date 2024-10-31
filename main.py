@@ -21,7 +21,7 @@ async def main():
     session_maker = async_sessionmaker(engine, expire_on_commit=False)
     async with session_maker() as session:
         future_lessons = await get_all_future_lessons(session, 24, 25)
-    await send_lessons_notification(bot, future_lessons)
+    await send_lessons_notification(bot, future_lessons, config.telegram.admin_login)
 
 
 if __name__ == "__main__":

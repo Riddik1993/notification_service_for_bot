@@ -15,6 +15,8 @@ def render_lessons_for_student(lessons: list[Lesson]) -> str:
     return ''.join(lessons_lst_str)
 
 
-def render_lessons_notifier_msg(lessons: list[Lesson]) -> str:
+def render_lessons_notifier_msg(lessons: list[Lesson], admin_login: str) -> str:
     lessons_lst_str = render_lessons_for_student(lessons)
-    return LexiconRu.lesson_notification_start.value + lessons_lst_str
+    lessons_notifier_msg = LexiconRu.lesson_notification_start.value + lessons_lst_str \
+                           + LexiconRu.apply_to_teacher.value + admin_login
+    return lessons_notifier_msg
